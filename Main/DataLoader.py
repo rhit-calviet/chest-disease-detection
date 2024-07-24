@@ -3,7 +3,7 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 
 class DataLoader:
-    def __init__(self, train_dir, test_dir, img_size=(256, 256), batch_size=40):
+    def __init__(self, train_dir, test_dir, img_size=(256, 256), batch_size=20):
         self.train_dir = train_dir
         self.test_dir = test_dir
         self.img_size = img_size

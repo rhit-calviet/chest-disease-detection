@@ -1,14 +1,14 @@
-from data_loader.py import DataLoader
-from model_builder.py import ModelBuilder
-from trainer.py import Trainer
-from evaluator.py import Evaluator
+from DataLoader import DataLoader
+from ModelBuilder import ModelBuilder
+from Trainer import Trainer
+from Evaluator import Evaluator
 
 
 class Main:
-    def __init__(self, train_dir, test_dir):
-        self.train_dir = train_dir
-        self.test_dir = test_dir
-        self.data_loader = DataLoader(train_dir, test_dir)
+    def __init__(self, train_Dir, test_Dir):
+        self.train_dir = train_Dir
+        self.test_dir = test_Dir
+        self.data_loader = DataLoader(train_dir, test_Dir)
         self.model_builder = ModelBuilder()
 
     def run(self):
@@ -18,7 +18,7 @@ class Main:
         trainer.compile_model()
         trainer.train_model()
 
-        model.save("model.h5")
+        model.save("model.keras")
         print("Saved model to disk")
 
         test_generator = self.data_loader.get_test_generator()

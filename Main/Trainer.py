@@ -12,9 +12,9 @@ class Trainer:
         self.model.compile(loss='categorical_crossentropy',
                            optimizer=optimizers.RMSprop(learning_rate=1e-4, decay=1e-6), metrics=["accuracy"])
 
-    def train_model(self, epochs=100, patience=20):
+    def train_model(self, epochs=10, patience=20):
         earlystopping = EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=patience)
-        checkpointer = ModelCheckpoint(filepath="../weights.hdf5", verbose=1, save_best_only=True)
+        checkpointer = ModelCheckpoint(filepath="../weights.keras", verbose=1, save_best_only=True)
         history = self.model.fit(
             self.train_generator,
             steps_per_epoch=self.train_generator.n // self.train_generator.batch_size,
